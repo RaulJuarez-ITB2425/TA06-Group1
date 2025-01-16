@@ -7,7 +7,7 @@ logging.basicConfig(filename='errores_lectura.log', level=logging.ERROR,
                     format='%(asctime)s - %(message)s')
 
 # Ruta del directorio donde se encuentran los archivos .dat
-directorio = 'precip.MIROC5.RCP60.2006-2100.SDSM_REJ'  # Cambia esta ruta a la carpeta correspondiente
+directorio = 'precip.MIROC5.RCP60.2006-2100.SDSM_REJ'  
 
 # Lista todos los archivos .dat en el directorio
 archivos = [f for f in os.listdir(directorio) if f.endswith('.dat')]

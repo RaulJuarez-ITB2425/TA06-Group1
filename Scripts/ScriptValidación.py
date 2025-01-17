@@ -61,9 +61,10 @@ for archivo in archivos:
         # Captura cualquier otro tipo de error
         logging.error(f"Error desconocido al leer el archivo {archivo}: {e}")
 
-# Si se leyeron archivos correctamente, concatenar
+# Si se leyeron archivos correctamente, concatenar y guardar
 if dfs:
     df_completo = pd.concat(dfs, ignore_index=True)
-    print(f"Se leyeron correctamente {archivos_leidos_correctamente} archivos.")
+    df_completo.to_csv('datos_leidos.csv', index=False)
+    print(f"Se leyeron correctamente {archivos_leidos_correctamente} archivos y se guardaron en 'datos_leidos.csv'.")
 else:
     print("No se leyeron archivos correctamente.")

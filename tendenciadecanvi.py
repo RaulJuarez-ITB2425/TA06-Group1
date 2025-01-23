@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 from scipy.stats import linregress
+import matplotlib.pyplot as plt
 
 def calculate_annual_precipitation_trend(file_path):
     """
@@ -33,7 +34,7 @@ def calculate_annual_precipitation_trend(file_path):
 def analyze_precipitation_folder(folder_path, output_csv):
     """
     Analitza tots els arxius d'una carpeta i calcula la tendència de canvi de les precipitacions.
-    Desa els resultats en un fitxer CSV.
+    Desa els resultats en un fitxer CSV i genera un gràfic.
     """
     results = []
     for file_name in os.listdir(folder_path):
@@ -48,6 +49,16 @@ def analyze_precipitation_folder(folder_path, output_csv):
     # Guardar els resultats en un fitxer CSV
     result_df.to_csv(output_csv, index=False)
     print(f"Resultats desats a: {output_csv}")
+
+    # Crear un gràfic sense noms dels arxius
+    plt.figure(figsize=(10, 6))
+    plt.bar(range(len(result_df)), result_df['AnnualPrecipitationTrend'], color='skyblue')
+    plt.xlabel('Index')
+    plt.ylabel('Annual Precipitation Trend')
+    plt.title('Tendència de canvi anual de les precipitacions')
+    plt.tight_layout()
+    plt.savefig('precipitation_trend_plot.png')  # Desa el gràfic com a imatge
+    plt.show()
 
 # Exemple d'execució
 folder_path = '/home/eric.vicente.7e8/Baixades/precip.MIROC5.RCP60.2006-2100.SDSM_REJ/ArchivosDAT'  # Substituir pel camí a la carpeta amb els arxius

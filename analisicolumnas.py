@@ -41,7 +41,7 @@ def analitzar_carpeta(carpeta, fitxer_sortida):
 
 # Exemple d'ús
 carpeta = '/home/eric.vicente.7e8/Baixades/precip.MIROC5.RCP60.2006-2100.SDSM_REJ/ArchivosDAT/'  # Posa el camí correcte de la carpeta
-fitxer_sortida = 'resultats_analisi2.csv'
+fitxer_sortida = 'resultats_analisi3.csv'
 analitzar_carpeta(carpeta, fitxer_sortida)
 
 print(f"Resultats desats a {fitxer_sortida}")

@@ -1,6 +1,8 @@
 import re
 import os
 from collections import defaultdict
+import csv
+import matplotlib.pyplot as plt
 
 # Ruta al directorio con los archivos
 ruta_directorio = 'precip.MIROC5.RCP60.2006-2100.SDSM_REJ'
@@ -54,11 +56,6 @@ print("\nMáxima duración de sequías por año:")
 for year in sorted(max_sequias.keys()):
     print(f"{year}: {max_sequias[year]} días")
 
-# Añadimos creción de gráficos
-
-import csv
-import matplotlib.pyplot as plt
-
 # Crear el archivo CSV con el índice de estacionalidad y duración de sequías
 with open('resumen_estadistico.csv', 'w', newline='') as archivo_csv:
     writer = csv.writer(archivo_csv)
@@ -92,7 +89,9 @@ plt.ylabel('Índice de Estacionalidad')
 plt.title('Índice de Estacionalidad por Año')
 plt.xticks(rotation=45)
 plt.tight_layout()
-plt.show()
+
+# Guardar el gráfico de estacionalidad como imagen
+plt.savefig('indice_estacionalidad.png')
 
 # Crear el gráfico de la duración máxima de las sequías
 duracion_sequias = [max_sequias.get(year, 0) for year in años]
@@ -104,4 +103,9 @@ plt.ylabel('Duración Máxima de Sequías (días)')
 plt.title('Duración Máxima de Sequías por Año')
 plt.xticks(rotation=45)
 plt.tight_layout()
+
+# Guardar el gráfico de duración de sequías como imagen
+plt.savefig('duracion_sequias.png')
+
+# Mostrar los gráficos
 plt.show()

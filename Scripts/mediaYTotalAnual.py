@@ -1,4 +1,5 @@
 import os
+import csv
 import numpy as np
 from collections import defaultdict
 
@@ -15,7 +16,7 @@ def calcular_media_y_total_anual(archivo):
                 # Extrae el año (suponemos que está en la segunda columna, índice 1)
                 año = int(columnas[1])  # Ajusta si el año está en otro índice
                 
-                # Ignora las primeras columnas no numéricas (ejemplo: P1, año, mes)
+                # Ignora las primeras columnas no numéricas
                 datos = columnas[3:]  # Ajusta según el formato exacto
                 
                 # Convierte los valores en números flotantes
@@ -41,11 +42,11 @@ def calcular_media_y_total_anual(archivo):
     }
     return resultados_anuales
 
-# Función principal para procesar todos los archivos en un directorio
-def procesar_archivos_en_directorio(directorio, salida='resultados_medias_totales_anuales.txt'):
-    resultados_totales = {}
+# Función principal para procesar todos los archivos en un directorio y guardar resultados en CSV
+def procesar_archivos_en_directorio(directorio, salida='resultados_medias_totales_anuales.csv'):
+    resultados_totales = []
 
-    # Listar y ordenar los archivos por el número después de "P" en el nombre
+    # Listar y ordenar los archivos por su número identificador
     archivos = sorted(
         [archivo for archivo in os.listdir(directorio) if archivo.startswith('precip.')],
         key=lambda x: int(x.split('.')[1][1:])  # Extraer el número después de "P"
@@ -58,25 +59,31 @@ def procesar_archivos_en_directorio(directorio, salida='resultados_medias_totale
         if os.path.isfile(ruta_completa):
             print(f"Procesando archivo: {archivo}")
             resultados_anuales = calcular_media_y_total_anual(ruta_completa)
-            resultados_totales[archivo] = resultados_anuales
+            
+            # Agregar resultados al total consolidado
+            for año, datos in sorted(resultados_anuales.items()):
+                resultados_totales.append({
+                    "Archivo": archivo,
+                    "Año": año,
+                    "Media Anual": datos["media"],
+                    "Total Anual": datos["total"]
+                })
 
-    # Guardar resultados en un archivo de salida
-    with open(salida, 'w') as archivo_salida:
-        for archivo, resultados in resultados_totales.items():
-            archivo_salida.write(f"Archivo: {archivo}\n")
-            for año, datos in sorted(resultados.items()):
-                archivo_salida.write(
-                    f"{año} --> Media anual: {datos['media']:.2f}, Total anual: {datos['total']:.2f}\n"
-                )
-            archivo_salida.write("\n")
-    
+    # Guardar los resultados consolidados en un archivo CSV
+    with open(salida, 'w', newline='') as archivo_csv:
+        campos = ["Archivo", "Año", "Media Anual", "Total Anual"]
+        escritor = csv.DictWriter(archivo_csv, fieldnames=campos)
+        
+        escritor.writeheader()
+        escritor.writerows(resultados_totales)
+
     print(f"Resultados consolidados guardados en: {salida}")
 
 # Ruta del directorio con los archivos
 directorio_datos = 'precip.MIROC5.RCP60.2006-2100.SDSM_REJ'
 
 # Archivo de salida
-archivo_salida = 'resultados_medias_totales_anuales.txt'
+archivo_salida = 'resultados_medias_totales_anuales.csv'
 
 # Ejecutar el procesamiento
 procesar_archivos_en_directorio(directorio_datos, archivo_salida)

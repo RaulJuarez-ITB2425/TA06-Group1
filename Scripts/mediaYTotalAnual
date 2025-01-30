@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
-# Función para calcular la media y el total anual agrupando dades per any
+# Función para calcular la media y el total anual agrupando datos por año
 def calcular_media_y_total_anual(archivo):
     precipitaciones_por_año = defaultdict(list)
     
@@ -43,7 +43,7 @@ def calcular_media_y_total_anual(archivo):
     }
     return resultados_anuales
 
-# Función principal para procesar todos los archivos en un directorio, guardar en CSV y generar un gráfico
+# Función principal para procesar archivos, guardar en CSV y generar gráficos
 def procesar_archivos_en_directorio(directorio, salida='resultados_medias_totales_anuales.csv'):
     resultados_totales = []
     consolidado_anual = defaultdict(lambda: {"total": 0, "media_suma": 0, "conteo": 0})
@@ -96,32 +96,36 @@ def procesar_archivos_en_directorio(directorio, salida='resultados_medias_totale
     for año in sorted(medias_consolidadas.keys()):
         print(f"Año {año}: Media consolidada = {medias_consolidadas[año]:.2f}, Total consolidado = {totales_consolidados[año]:.2f}")
 
-    # Generar el gráfico
-    generar_grafico(medias_consolidadas, totales_consolidados)
+    # Generar los gráficos por separado
+    generar_graficos_separados(medias_consolidadas, totales_consolidados)
 
-# Función para generar un gráfico con las medias y totales consolidados
-def generar_grafico(medias_consolidadas, totales_consolidados):
+# Nueva función para generar gráficos separados
+def generar_graficos_separados(medias_consolidadas, totales_consolidados):
     años = sorted(medias_consolidadas.keys())
     medias = [medias_consolidadas[año] for año in años]
     totales = [totales_consolidados[año] for año in años]
 
+    # **Gráfico de Media Anual**
     plt.figure(figsize=(10, 6))
-    
-    # Graficar medias
     plt.plot(años, medias, label='Media Anual', marker='o', color='blue')
-    
-    # Graficar totales
-    plt.plot(años, totales, label='Total Anual', marker='s', color='green')
-    
-    # Configuración del gráfico
-    plt.title('Media y Total Anual de Precipitaciones (Consolidado)')
+    plt.title('Media Anual de Precipitaciones (Consolidado)')
     plt.xlabel('Año')
-    plt.ylabel('Valor')
+    plt.ylabel('Media de Precipitaciones')
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    
-    # Mostrar el gráfico
+    plt.show()
+    plt.close()
+
+    # **Gráfico de Total Anual** (se muestra al cerrar el grafico anterior)
+    plt.figure(figsize=(10, 6))
+    plt.plot(años, totales, label='Total Anual', marker='s', color='green')
+    plt.title('Total Anual de Precipitaciones (Consolidado)')
+    plt.xlabel('Año')
+    plt.ylabel('Total de Precipitaciones')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
     plt.show()
     plt.close()
 

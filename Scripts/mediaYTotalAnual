@@ -114,6 +114,7 @@ def generar_graficos_separados(medias_consolidadas, totales_consolidados):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    plt.savefig('media_anual.png')
     plt.show()
     plt.close()
 
@@ -126,6 +127,7 @@ def generar_graficos_separados(medias_consolidadas, totales_consolidados):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    plt.savefig('total_anual.png')
     plt.show()
     plt.close()
 

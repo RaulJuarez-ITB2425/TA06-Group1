@@ -39,6 +39,8 @@ plt.figure(figsize=(6, 6))
 plt.pie(tamaños, labels=etiquetas, autopct='%1.1f%%', startangle=90, colors=colores)
 plt.title('Porcentaje de "-999" frente a otros valores')
 plt.axis('equal')  # Asegura que el gráfico sea un círculo perfecto
+plt.tight_layout()
+plt.savefig('porcentaje_999.png')
 plt.show()
 plt.close()
 

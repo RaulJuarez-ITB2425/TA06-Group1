@@ -33,10 +33,10 @@ años_mas_pluviosos = [year for year, total in precipitacion_anual.items() if to
 años_mas_secos = [year for year, total in precipitacion_anual.items() if total == min_precipitacion]
 
 # Resultados
-print("Años más pluviosos:")
+print("Año más pluvioso:")
 for year in años_mas_pluviosos:
     print(f"{year}: {max_precipitacion} mm")
 
-print("\nAños más secos:")
+print("\nAño más seco:")
 for year in años_mas_secos:
     print(f"{year}: {min_precipitacion} mm")

@@ -40,6 +40,7 @@ plt.pie(tamaños, labels=etiquetas, autopct='%1.1f%%', startangle=90, colors=col
 plt.title('Porcentaje de "-999" frente a otros valores')
 plt.axis('equal')  # Asegura que el gráfico sea un círculo perfecto
 plt.show()
+plt.close()
 
 # Guardar los resultados en un archivo CSV
 ruta_csv = 'resultados.csv'

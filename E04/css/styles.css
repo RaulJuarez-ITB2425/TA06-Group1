@@ -48,7 +48,7 @@ main {
     margin-top: 40px;
     flex: 1;
     display: flex;
-    flex-direction: column; /* Organiza en columnas (verticalmente) */
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
 }
@@ -118,8 +118,6 @@ main {
     text-align: center;
 }
 
-
-
 .pagina-principal p {
     padding-bottom: 30px;
 }
@@ -165,12 +163,12 @@ main {
 
 /* Formulario */
 #contacto {
-    background-color: #f9f9f9;
+    background-color: #f8f8f8;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 900px;
+    max-width: 1202px;
     margin: 0 auto;
 }
 
@@ -197,6 +195,8 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin: 0 auto;
+    width: 75%;
 }
 
 .content label {
@@ -231,6 +231,8 @@ input[type="text"], input[type="email"] {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 0 auto;
+    width: 75%;
 }
 
 #contacto button:hover {
@@ -254,25 +256,25 @@ footer .social-links a:hover {
     text-decoration: underline;
 }
 
-/* Otros */
-
-section p {
-    text-align: center;
-}
-
-section span {
-    text-align: center;
-}
-
-.nav-menu a.activo {
-    background-color: #555;
-    color: #fff; 
-    border-radius: 5px;
-    padding: 10px 15px;
-}
-
+/* Contenido de cada proyecto */
 .content_title {
     font-size: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.bodyproject {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.85)
+    )
+    ,url("../imagenes/hacking2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: white
 }
 
 .content_container {
@@ -281,10 +283,16 @@ section span {
     flex-direction: column;
     margin: 0 auto;
     text-align: center;
-    margin-top: 30px;
-    padding-left: 60px;
-    padding-right: 60px;
-    max-width: 1500px;
+    padding: 13px 60px;
+    width: 100%;
+    max-width: 1300px;
+}
+
+.content_img {
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    clip-path: inset(2px)
 }
 
 .content_descrip {
@@ -293,23 +301,7 @@ section span {
     padding: 10px;
 }
 
-.pagina-detall {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.image-container-detall {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 60px;
-}
-
+/* Página con todos los proyectos */
 .project-list {
     display: flex;
     flex-direction: column;
@@ -345,13 +337,12 @@ section span {
 }
 .project-info h1 {
     font-size: 18px;
-    margin: 0 0 10px;
+    padding-top: 7px;
 }
 .project-info p {
-    margin: 0 0 10px;
     font-size: 15px;
     color: #555;
-    padding: 14px;
+    padding: 17px;
 }
 .project-info a {
     text-decoration: none;
@@ -364,7 +355,7 @@ section span {
     text-decoration: underline;
 }
 
-#bodyProyectos {
+.bodyProyectos {
     background-image: linear-gradient(
         0deg,
         rgba(0,0,0,0.7),
@@ -377,13 +368,27 @@ section span {
     background-attachment: fixed;
 }
 
+/* Otros */
+section p {
+    text-align: center;
+}
+
+section span {
+    text-align: center;
+}
+
+.nav-menu a.activo {
+    background-color: #555;
+    color: #fff; 
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
-/* jumpscare */
-
-/* Botón animado */
+/* jumpscare script */
 #animated-button {
     position: absolute;
     top: 50%;
@@ -399,7 +404,6 @@ html {
     animation: slideIn 2s ease-in-out forwards;
   }
   
-  /* Animación de deslizamiento con rebote */
   @keyframes slideIn {
     0% { left: -150px; }
     70% { left: 50%; transform: translateX(-50%); }
@@ -407,7 +411,6 @@ html {
     100% { left: 50%; }
   }
   
-  /* Jumpscare */
   #jumpscare {
     position: fixed;
     top: 0;
@@ -429,13 +432,30 @@ html {
     max-height: none;
   }
   
-  /* Mostrar el jumpscare */
   #jumpscare.show {
     opacity: 1;
     visibility: visible;
   }
   
-  /* Ocultar el jumpscare */
   .hidden {
     display: none;
   }
+
+  /* script paginación */
+
+  .paginacion .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+ .paginacion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    color: white;
+ }
+
+ .paginacion a {
+    color: white;
+ }

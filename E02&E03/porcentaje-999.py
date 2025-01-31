@@ -4,7 +4,7 @@ import csv
 import matplotlib.pyplot as plt
 
 # Ruta al directorio con los archivos
-ruta_directorio = 'precip.MIROC5.RCP60.2006-2100.SDSM_REJ'
+ruta_directorio = 'E01/precip.MIROC5.RCP60.2006-2100.SDSM_REJ'
 
 # Array para contener todos los valores
 valores_totales = []

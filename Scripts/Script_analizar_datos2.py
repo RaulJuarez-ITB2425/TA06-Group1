@@ -1,4 +1,3 @@
-import re
 import os
 from collections import defaultdict
 import csv

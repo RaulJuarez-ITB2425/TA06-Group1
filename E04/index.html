@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 5 Web</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./imagenes/iconoHack.png">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="activo">Inicio</a></li>
+                <li><a href="./html/proyectos.html">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <aside id="enlace-rapido">
+            <h3>Sobre nosotros</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quod ab. Aliquam sint aperiam corrupti quia error inventore, architecto molestias quod tenetur, nihil voluptatem itaque nam assumenda enim repellat. Deserunt?</p>
+                <form action="#contacto">
+                    <button>Más información</button>
+                </form>                
+        </aside>
+
+        <section class="pagina-principal">
+            <h1>Proyectos destacados</h1>
+            <p>Información sobre los proyectos</p>
+            <div class="image-container1">
+                <a href="./html/proyecto1.html" class="image-box">
+                    <img src="./imagenes/cultivo.jpg" alt="Imagen 1">
+                    <span class="project-title"></span>
+                </a>
+                <a href="./html/proyecto2.html" class="image-box">
+                    <img src="./imagenes/cultivo.jpg" alt="Imagen 2">
+                    <span class="project-title"></span>
+                </a>
+            </div>
+            <div class="image-container2">
+                <a href="./html/proyecto3.html" class="image-box">
+                    <img src="./imagenes/cultivo.jpg" alt="Imagen 3">
+                    <span class="project-title"></span>
+                </a>
+                <a href="./html/proyecto4.html" class="image-box">
+                    <img src="./imagenes/cultivo.jpg" alt="Imagen 4">
+                    <span class="project-title"></span>
+                </a>
+            </div>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Si tienes cualquier consulta, no dudes en enviarnos un mensaje.</p>
+            <form action="procesar_formulario.php" method="POST">
+                <div class="content">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" maxlength="70" required>
+                    
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" maxlength="70" required>
+                
+        
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="9" required></textarea>
+                </div>
+                 <button type="submit" id="submit-button">Enviar</button>
+            </form>
+        </section>
+    </main>     
+
+    <footer>
+        <p>&copy; 2024 Group 5</p>
+        <div class="social-links">
+            <a href="https://facebook.com">Facebook</a> |
+            <a href="https://twitter.com">Twitter</a> |
+            <a href="https://instagram.com">Instagram</a>
+        </div>
+    </footer>
+
+</body>
+</html>

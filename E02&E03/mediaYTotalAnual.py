@@ -111,6 +111,6 @@ def generar_graficos_separados(medias_consolidadas, totales_consolidados):
     plt.show()
 
 # Ejecutar el procesamiento
-directorio_datos = 'precip.MIROC5.RCP60.2006-2100.SDSM_REJ'
+directorio_datos = 'E01\precip.MIROC5.RCP60.2006-2100.SDSM_REJ'
 archivo_salida = 'resultados_medias_totales_anuales.csv'
 procesar_archivos_en_directorio(directorio_datos, archivo_salida)

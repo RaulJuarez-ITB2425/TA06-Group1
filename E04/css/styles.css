@@ -67,7 +67,7 @@ main {
         rgba(0,0,0,0.7),
         rgba(0,0,0,0.7)
     )
-    ,url("../imagenes/hacking2.jpg");
+    ,url("../imagenes/precipitaciones2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -269,7 +269,7 @@ footer .social-links a:hover {
         rgba(0,0,0,0.85),
         rgba(0,0,0,0.85)
     )
-    ,url("../imagenes/hacking2.jpg");
+    ,url("../imagenes/precipitaciones.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -283,7 +283,8 @@ footer .social-links a:hover {
     flex-direction: column;
     margin: 0 auto;
     text-align: center;
-    padding: 13px 60px;
+    padding: 0px 200px;
+    padding-bottom: 20px;
     width: 100%;
     max-width: 1300px;
 }
@@ -361,7 +362,7 @@ footer .social-links a:hover {
         rgba(0,0,0,0.7),
         rgba(0,0,0,0.7)
     )
-    ,url("../imagenes/hacking2.jpg");
+    ,url("../imagenes/precipitaciones.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

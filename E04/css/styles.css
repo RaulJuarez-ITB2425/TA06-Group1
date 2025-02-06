@@ -211,6 +211,15 @@ footer .social-links a:hover {
     max-width: 1300px;
 }
 
+.text_container h2 {
+    font-size: 21px;
+    padding-top: 10px;
+}
+
+.text_container ul {
+    padding: 10px;
+}
+
 #image_container999 {
     align-items: center;
     display: flex;
@@ -329,7 +338,14 @@ html {
 /* csv */
 
  .csv {
-    color: rgb(9, 22, 204);
     font-weight: bold;
     text-align: center;
+ }
+ .csv h1 {
+    color: rgb(11, 96, 224);
+    font-size: 20px;
+ }
+
+ .csv h1:hover {
+    font-size: 21px;
  }

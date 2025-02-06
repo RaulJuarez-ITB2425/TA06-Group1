@@ -460,3 +460,9 @@ html {
  .paginacion a {
     color: white;
  }
+
+ .csv {
+    color: rgb(9, 22, 204);
+    font-weight: bold;
+    text-align: center;
+ }
